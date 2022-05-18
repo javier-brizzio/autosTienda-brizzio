@@ -50,3 +50,34 @@ li a {
   align-items: center;
   display: flex;
 }
+
+.contador {
+  display: flex;
+  justify-content: left;
+  padding: 2px;
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.contador span {
+  width: 30px;
+  margin: 15px;
+  text-align: center;
+  line-height: 80%;
+}
+.contador button {
+  width: 30px;
+  margin: 10px;
+}
+
+.botonCarrito  button{
+    width: 140px;
+    height: 40px;
+    margin: 10px;
+}
+
+.titulo {
+  margin: 10px;
+  font-size: large;
+}
