@@ -1,0 +1,24 @@
+{
+    "autos":[
+    {
+        "id": 1,
+        "title": "Audi",
+        "price": 25000,
+        "pictureUrl": "/coche.png",
+        "stock": 8
+    },
+    {
+        "id": 2,
+        "title": "Mercedes Benz",
+        "price": 35500,
+        "pictureUrl": "/coche.png",
+        "stock": 6
+    },
+    {
+        "id": 3,
+        "title": "Mustang",
+        "price": 65000,
+        "pictureUrl": "/coche.png",
+        "stock": 3
+    }
+]}
