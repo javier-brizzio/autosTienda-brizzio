@@ -83,10 +83,12 @@ li a {
 }
 
 .item {
-  display: inline;
-  width: 400px;
   justify-content: space-evenly;
   text-align: center;
+  border: 2px solid black;
+}
+
+.itemDetail {
   border: 2px solid black;
 }
 
@@ -107,7 +109,18 @@ li a {
   padding: 10px;
 }
 
+.itemDetalle {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
 .gris {
   background-color: grey;
   font-size: 26px;
+}
+
+.grisClaro {
+  background-color: rgb(127, 146, 146);
+  font-size: 24px;
 }

@@ -5,6 +5,7 @@
         "title": "Audi",
         "price": 25000,
         "pictureUrl": "/coche.png",
+        "descripcion": "Auto de gama media familiar",
         "stock": 8
     },
     {
@@ -12,6 +13,7 @@
         "title": "Mercedes Benz",
         "price": 35500,
         "pictureUrl": "/coche.png",
+        "descripcion": "Auto de alta gama empresarial",
         "stock": 6
     },
     {
@@ -19,6 +21,7 @@
         "title": "Mustang",
         "price": 65000,
         "pictureUrl": "/coche.png",
+        "descripcion": "Auto de colección para eventos",
         "stock": 3
     }
 ]}
