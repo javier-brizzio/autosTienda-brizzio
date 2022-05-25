@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Item = ({ item }) => {
   return (
@@ -12,9 +13,11 @@ const Item = ({ item }) => {
         alt="#"
       />
       <div>Precio: U$S {item.price}</div>
-      <button onClick={() => console.log(item.id)}>
-        Ver detalle del producto
-      </button>
+      <Link to={"/item/" + item.id}>
+        <button onClick={() => console.log(item.id)}>
+          Ver detalle del producto
+        </button>
+      </Link>
       <div className="gris">Stock disponible: {item.stock}</div>
     </div>
   );

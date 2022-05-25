@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "../App.css";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
 export const ItemListContainer = ({ greeting }) => {
   const [listado, setListado] = useState([]);
+  const { id } = useParams();
   const nombre = (valor) => {
     return console.log(valor);
   };
@@ -19,12 +21,15 @@ export const ItemListContainer = ({ greeting }) => {
       try {
         const respuesta = await promise;
         const data = await respuesta.json();
-        setListado(data.autos);
+        let valor = id
+          ? data.autos.filter((it) => it.category === id)
+          : data.autos;
+        setListado(valor);
       } catch (error) {
         console.log(error);
       }
     })();
-  }, []);
+  }, [id]);
 
   return (
     <div className="containerList">

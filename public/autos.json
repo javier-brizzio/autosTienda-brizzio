@@ -3,6 +3,7 @@
     {
         "id": 1,
         "title": "Audi",
+        "category": "usados",
         "price": 25000,
         "pictureUrl": "/coche.png",
         "descripcion": "Auto de gama media familiar",
@@ -11,6 +12,7 @@
     {
         "id": 2,
         "title": "Mercedes Benz",
+        "category": "nuevos",
         "price": 35500,
         "pictureUrl": "/coche.png",
         "descripcion": "Auto de alta gama empresarial",
@@ -19,6 +21,7 @@
     {
         "id": 3,
         "title": "Mustang",
+        "category": "coleccion",
         "price": 65000,
         "pictureUrl": "/coche.png",
         "descripcion": "Auto de colección para eventos",
