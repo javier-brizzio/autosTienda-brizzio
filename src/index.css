@@ -89,7 +89,9 @@ li a {
 }
 
 .itemDetail {
+  justify-content: space-evenly;
   border: 2px solid black;
+  width: 600px;
 }
 
 .item button {

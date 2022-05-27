@@ -7,9 +7,6 @@ import ItemList from "./ItemList";
 export const ItemListContainer = ({ greeting }) => {
   const [listado, setListado] = useState([]);
   const { id } = useParams();
-  const nombre = (valor) => {
-    return console.log(valor);
-  };
   useEffect(() => {
     (async () => {
       const promise = new Promise((acc, rej) => {
@@ -35,7 +32,6 @@ export const ItemListContainer = ({ greeting }) => {
     <div className="containerList">
       {greeting}
       <ItemList items={listado} />
-      <ItemCount stock="10" initial="1" onAdd={nombre} />
     </div>
   );
 };

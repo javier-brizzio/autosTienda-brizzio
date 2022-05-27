@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
+  const [terminaCompra, setTerminaCompra] = useState(false);
+  const Agregar = (valor) => {
+    setTerminaCompra(true);
+  };
+
   return (
     <div className="itemDetail">
       <div className="grisClaro">Detalle de Producto</div>
@@ -14,6 +21,13 @@ const ItemDetail = ({ item }) => {
       />
       <div>Precio: U$S {item.price}</div>
       <div className="grisClaro">Descripción: {item.descripcion}</div>
+      {terminaCompra ? (
+        <button>
+          <Link to={"/cart"}>Terminar mi compra</Link>
+        </button>
+      ) : (
+        <ItemCount stock="10" initial="1" onAdd={Agregar} />
+      )}
     </div>
   );
 };

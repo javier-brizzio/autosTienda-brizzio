@@ -7,11 +7,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   const restar = () => setContador(contador > 1 ? contador - 1 : contador);
   const sumar = () => setContador(contador < stock ? contador + 1 : stock);
-  const validar = () => {
-    if (contador > 0) {
-      onAdd(contador);
-    }
-  };
+
   useEffect(() => {
     setContador(
       initial !== undefined && initial < stock ? Number(initial) : stock
@@ -31,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         </button>
       </div>
       <div className="botonCarrito">
-        <button onClick={validar}>Agregar al carrito</button>
+        <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
       </div>
     </div>
   );
