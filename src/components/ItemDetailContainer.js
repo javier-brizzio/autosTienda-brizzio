@@ -1,28 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
+import { getItemById } from "../app/api";
 
 const ItemDetailContainer = () => {
-  const [detalle, setDetalle] = useState([]);
+  const [detalle, setDetalle] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    const getItem = async () => {
-      const promise = new Promise((acc, rej) => {
-        const response = fetch("../autos.json");
-        setTimeout(() => {
-          acc(response);
-        }, 2000);
-      });
-      try {
-        const respuesta = await promise;
-        const data = await respuesta.json();
-        let valor = data.autos.filter((it) => it.id == id);
-        setDetalle(valor.pop());
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getItem();
+    getItemById(id).then((res) => {
+      res.item = Object.assign(res.item, { id: id });
+      setDetalle(res.item);
+    });
   }, [id]);
   return (
     <div>

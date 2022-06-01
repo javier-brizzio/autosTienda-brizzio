@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
   const { addItem } = useContext(CartContext);
-
   const [quantity, setQuantity] = useState(0);
 
   const [terminaCompra, setTerminaCompra] = useState(false);

@@ -2,29 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../App.css";
 import ItemList from "./ItemList";
+import { getItems } from "../app/api";
 
 export const ItemListContainer = ({ greeting }) => {
   const [listado, setListado] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
-    (async () => {
-      const promise = new Promise((acc, rej) => {
-        const response = fetch("../autos.json");
-        setTimeout(() => {
-          acc(response);
-        }, 2000);
-      });
-      try {
-        const respuesta = await promise;
-        const data = await respuesta.json();
-        let valor = id
-          ? data.autos.filter((it) => it.category === id)
-          : data.autos;
-        setListado(valor);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
+    getItems().then((res) => {
+      let valor = id ? res.filter((it) => it.item.category === id) : res;
+      setListado(valor);
+    });
   }, [id]);
 
   return (
