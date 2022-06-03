@@ -8,8 +8,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   useEffect(() => {
     getItemById(id).then((res) => {
-      res.item = Object.assign(res.item, { id: id });
-      setDetalle(res.item);
+      setDetalle({ ...res.item, id });
     });
   }, [id]);
   return (

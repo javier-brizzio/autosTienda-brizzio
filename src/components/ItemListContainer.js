@@ -2,16 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../App.css";
 import ItemList from "./ItemList";
-import { getItems } from "../app/api";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 export const ItemListContainer = ({ greeting }) => {
   const [listado, setListado] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
-    getItems().then((res) => {
-      let valor = id ? res.filter((it) => it.item.category === id) : res;
-      setListado(valor);
+    const db = getFirestore();
+    const itemsCollection = collection(db, "items");
+    getDocs(itemsCollection).then((snapshot) => {
+      const items = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      if (!id) {
+        setListado(items);
+      } else {
+        const filteredItem = items.filter((item) => item.item.category === id);
+        setListado(filteredItem);
+      }
     });
   }, [id]);
 

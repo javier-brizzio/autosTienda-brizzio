@@ -14,7 +14,11 @@ const ItemDetail = ({ item }) => {
   };
 
   const finalizarCompra = () => {
-    addItem(item, quantity);
+    if (item.stock - quantity >= 0) {
+      addItem(item, quantity);
+    } else {
+      alert("Sin stock para el producto");
+    }
   };
 
   return (
@@ -35,7 +39,7 @@ const ItemDetail = ({ item }) => {
           <button onClick={() => finalizarCompra()}>Terminar mi compra</button>
         </Link>
       ) : (
-        <ItemCount stock="10" initial="1" onAdd={Agregar} />
+        <ItemCount stock={item.stock} initial="0" onAdd={Agregar} />
       )}
     </div>
   );
