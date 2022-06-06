@@ -14,12 +14,12 @@ export const CartWidget = () => {
   }, [cart]);
 
   return (
-    <Link to={"/cart"}>
+    <Link style={{ textDecoration: "none" }} to={"/cart"}>
       <div className="cartWidget">
         <div>
           <img src={cartImg} alt="cartIcon" width="60px" />
         </div>
-        <p>{cantidadCompra}</p>
+        <div className="cantidadCartWidget">{cantidadCompra}</div>
       </div>
     </Link>
   );

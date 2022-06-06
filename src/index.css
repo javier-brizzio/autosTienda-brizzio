@@ -48,6 +48,14 @@ li a {
   background-color: darkgray;
 }
 
+.cantidadCartWidget {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-weight: bolder;
+}
 .nombre {
   font-size: 18px;
 }

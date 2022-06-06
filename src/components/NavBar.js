@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import logo from "../coche.png";
 import "../App.css";
+import { CartContext } from "../context/CartContext";
 
 export const NavBar = () => {
+  const { cart } = useContext(CartContext);
   return (
     <div className="containerNav">
       <nav className="navbar">
-        <Link to={"/"}>
+        <Link style={{ textDecoration: "none" }} to={"/"}>
           <div className="marca">
             <img src={logo} alt="cartIcon" width="80" align="left" />
             <p className="nombre" href="#">
@@ -28,7 +30,7 @@ export const NavBar = () => {
           </li>
         </ul>
       </nav>
-      <CartWidget />
+      {cart.length > 0 ? <CartWidget /> : <></>}
     </div>
   );
 };

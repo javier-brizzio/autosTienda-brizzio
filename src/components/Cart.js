@@ -96,16 +96,25 @@ const Cart = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      {cart.map((item) => (
-        <div className="cartLine" key={item.id}>
-          <div>Marca: {item.title}</div>
-          <div>Categoria: {item.category}</div>
-          <div>Precio: U$S {item.price}</div>
-          <div>Cantidad: {item.quantity}</div>
-          <div>Total: U$S {item.quantity * item.price}</div>
-          <button onClick={() => removeItem(item.id)}>Eliminar Item</button>
+      {cart.length > 0 ? (
+        cart.map((item) => (
+          <div className="cartLine" key={item.id}>
+            <div>Marca: {item.title}</div>
+            <div>Categoria: {item.category}</div>
+            <div>Precio: U$S {item.price}</div>
+            <div>Cantidad: {item.quantity}</div>
+            <div>Total: U$S {item.quantity * item.price}</div>
+            <button onClick={() => removeItem(item.id)}>Eliminar Item</button>
+          </div>
+        ))
+      ) : (
+        <div>
+          <div>No existen Productos en el carrito</div>
+          <Link to={"/"}>
+            <button>Volver a Home</button>
+          </Link>
         </div>
-      ))}
+      )}
       <Link to={"/"}>
         <button
           hidden={deshabilitado}
